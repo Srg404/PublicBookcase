@@ -13,7 +13,7 @@
   @import "./assets/scss/abstracts";
   @import "./assets/scss/main";
 
-  #app {
+  [id=app] {
     min-height: 100vh;
     font-family: $font-stack;
     -webkit-font-smoothing: antialiased;
@@ -22,7 +22,7 @@
     color: $text-color;
   }
 
-  #nav {
+  [id=nav] {
     position: absolute;
     right: 0;
     top: 0;

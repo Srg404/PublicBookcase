@@ -25,6 +25,19 @@ body{
   line-height: 1.2em;
 }
 
+button{
+  cursor: pointer;
+}
+
+a{
+  text-decoration: none;
+  &:hover,
+  &:active,
+  &:focus {
+    text-decoration: underline; 
+  }
+}
+
 p{
   line-height: 1.2em;
 }
