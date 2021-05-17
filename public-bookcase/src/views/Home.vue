@@ -6,8 +6,27 @@
         subTitle="Boites à livres"
       />
       <p>Autogestion citoyennes des boites a livres sur la region d’andennes</p>
-      <div class="btn loading"><i class="fas fa-spinner"></i> Chargement</div>
-      <button class="btn btn-effect">Afficher la carte</button>
+
+      <div
+        class="btn loading"
+        v-if="getStatusList === 'waiting'">
+        <i class="fas fa-spinner"></i> Chargement
+      </div>
+
+      <router-link
+        to="/map"
+        class="btn btn-effect"
+        v-if="getStatusList === 'done'">
+        Afficher la carte
+      </router-link>
+
+      <div
+        class="alert-warning"
+        role="alert"
+        v-if="getStatusList === 'error'">
+        Une erreur s'est produite, veuillez réessayer plus tard
+      </div>
+
     </div>
   </div>
 </template>
@@ -15,11 +34,15 @@
 <script>
 // @ is an alias to /src
 import TheTitle from '@/components/TheTitle.vue';
+import { mapGetters } from 'vuex';
 
 export default {
   name: 'Home',
   components: {
     TheTitle,
+  },
+  computed: {
+    ...mapGetters(['getStatusList']),
   },
 };
 </script>

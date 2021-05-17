@@ -2,6 +2,14 @@
 // This file contains globals vue element Overide styles
 // -----------------------------------------------------------------------------
 
+.alert-warning{
+    color: $text-color;
+    background: rgba($white, .15);
+    border: 2px solid $alert;
+    padding: .5em;
+    margin: 1em 0;
+}
+
 .btn-effect{
     position: relative;
     overflow: hidden;

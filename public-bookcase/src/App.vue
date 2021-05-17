@@ -8,6 +8,54 @@
   </div>
 </template>
 
+<script>
+import axios from 'axios';
+
+export default {
+  name: 'App',
+  components: {
+  },
+  data() {
+    return {
+      baseURL: 'https://www.odwb.be/explore/dataset/emplacements-des-boites-a-livres-dandenne/download/?format=json&timezone=Europe/Berlin&lang=fr',
+    };
+  },
+  methods: {
+    getList() {
+      axios.get(this.baseURL)
+        .then((response) => {
+          this.$store.commit('setList', this.convertData(response.data));
+          this.$store.commit('setStatusList', 'done');
+        })
+        .catch((error) => {
+          // handle error
+          console.log(error);
+          this.$store.commit('setStatusList', 'error');
+        })
+        .then(() => {
+          // always executed
+        });
+    },
+    convertData(data) {
+      const cleanData = [];
+      console.log('list ---> ', data);
+      data.forEach((el) => {
+        cleanData.push({
+          recordid: el.recordid,
+          name: el.fields.name,
+          coordinates: el.geometry.coordinates,
+        });
+      });
+      console.log('clean list ---> ', cleanData);
+      return cleanData;
+    },
+  },
+  mounted() {
+    this.getList();
+  },
+};
+</script>
+
 <style lang="scss">
   @import "./assets/scss/fonts";
   @import "./assets/scss/abstracts";
