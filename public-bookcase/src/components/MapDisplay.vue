@@ -30,7 +30,7 @@ export default {
   data() {
     return {
       url: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-      zoom: 14,
+      zoom: 13,
       center: [50.489, 5.095],
       icon: L.icon({
         iconUrl: pinImg,

@@ -3,12 +3,19 @@
       <div v-if="isOpen">
         <div class="overlay" @click.self="closeModal">
           <div class="my-modal">
+            <ModalHeader
+              :name="bookcase.name"
+              :coordinates="bookcase.coordinates"
+            />
             <button
+              class="close-bt"
               v-on:click="closeModal"
-            >close Modal</button>
-            <h1>{{bookcase.name}}</h1>
-            <p>Coordonées {{bookcase.coordinates[1]}}° Nord, {{bookcase.coordinates[0]}}° Est<br>
-            <small><i>{{bookcase.recordid}}</i></small></p>
+            ><span>fermer</span></button>
+
+            <ModalBooks
+              :bookcase="bookcase"
+            />
+
           </div>
         </div>
       </div>
@@ -16,9 +23,14 @@
 </template>
 
 <script>
+import ModalHeader from '@/components/ModalHeader.vue';
+import ModalBooks from '@/components/ModalBooks.vue';
+
 export default {
   name: 'Modal',
   components: {
+    ModalHeader,
+    ModalBooks,
   },
   data() {
     return {
@@ -90,6 +102,50 @@ export default {
   background: rgba(0,0,0,.85);
   z-index: 999;
   transition: opacity 0.2s ease;
+}
+
+.close-bt{
+  span{
+    display: none;
+  }
+  border:none;
+  background: $black;
+  border-radius: 50%;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 2;
+  color: $white;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  cursor: pointer;
+  &::before,
+  &::after{
+    content: "";
+    display: block;
+    width: 60%;
+    border-top: 6px solid currentColor;
+    position: absolute;
+    top: calc(50% - 3px);
+    left: 20%;
+    right: 20%;
+    transition: transform .25s ease;
+  }
+  &::before{
+      transform: rotate(-45deg);
+    }
+    &::after{
+      transform: rotate(45deg);
+    }
+  &:hover{
+    &::before{
+      transform: rotate(45deg);
+    }
+    &::after{
+      transform: rotate(-45deg);
+    }
+  }
 }
 
 </style>
