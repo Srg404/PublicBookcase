@@ -14,7 +14,7 @@
         <li v-for="(el, index) in searchList" :key="index">
           <ElementList
             :bookcase="el"
-            v-on:openModal="openModal"
+            @openModal="openModal"
             />
       </li>
     </ul>

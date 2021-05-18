@@ -2,8 +2,8 @@
   <div class="element-list">
       <i class="fas fa-book"></i>
       <span>{{ bookcase.name }}</span>
-      <Button
-        v-on:clickButton="clickButton"
+      <SimpleButton
+        @clickButton="clickButton"
         iconClass="fas fa-eye"
         title="Voir"
       />
@@ -11,12 +11,12 @@
 </template>
 
 <script>
-import Button from '@/components/Button.vue';
+import SimpleButton from '@/components/SimpleButton.vue';
 
 export default {
   name: 'ElementList',
   components: {
-    Button,
+    SimpleButton,
   },
   props: {
     bookcase: Object,

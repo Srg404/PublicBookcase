@@ -6,13 +6,13 @@
     />
     <div class="sidebar">
       <Sidebar
-        v-on:openModal="openModal"
-        v-on:filter="filter"
+        @openModal="openModal"
+        @filter="filter"
       />
     </div>
     <div class="map-display">
       <MapDisplay
-        v-on:openModal="openModal"
+        @openModal="openModal"
         :filter="filteredList"
       />
     </div>

@@ -3,7 +3,7 @@
       <l-tile-layer :url="url"></l-tile-layer>
       <l-marker
         v-for="(item, index) in allPins"
-        v-on:click="triggerPin(item)"
+        @click="triggerPin(item)"
         :key="index"
         :icon="icon"
         :lat-lng="[item.coordinates[1],item.coordinates[0]]"
@@ -25,7 +25,7 @@ export default {
     LTileLayer,
   },
   props: {
-    filter: Array,
+    filter: Object,
   },
   data() {
     return {

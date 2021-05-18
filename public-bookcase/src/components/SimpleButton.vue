@@ -1,6 +1,6 @@
 <template>
   <button
-    v-on:click="$emit('clickButton')"
+    @click="$emit('clickButton')"
     class="btn-effect"
   >
     <i :class="iconClass"></i>
@@ -10,7 +10,7 @@
 
 <script>
 export default {
-  name: 'button',
+  name: 'SimpleButton',
   props: {
     title: String,
     iconClass: String,
