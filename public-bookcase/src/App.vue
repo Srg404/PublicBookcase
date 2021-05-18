@@ -71,6 +71,7 @@ export default {
 
   [id=nav] {
     position: absolute;
+    z-index: 10;
     right: 0;
     top: 0;
     padding: 30px;
