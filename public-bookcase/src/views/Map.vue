@@ -16,6 +16,11 @@
         :filter="filteredList"
       />
     </div>
+      <Modal
+        :bookcase="currentBookcase"
+        :isOpen="isOpen"
+        v-on:close-modal="closeModal"
+      />
   </div>
 </template>
 
@@ -23,12 +28,14 @@
 import MapDisplay from '@/components/MapDisplay.vue';
 import Sidebar from '@/components/Sidebar.vue';
 import TheTitle from '@/components/TheTitle.vue';
+import Modal from '@/components/Modal.vue';
 
 export default {
   components: {
     MapDisplay,
     Sidebar,
     TheTitle,
+    Modal,
   },
   data() {
     return {
