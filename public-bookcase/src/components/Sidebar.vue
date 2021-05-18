@@ -57,7 +57,6 @@ export default {
   },
   watch: {
     searchList: function searchList(value) {
-      console.log(value);
       this.$emit('filter', value);
     },
   },

@@ -14,6 +14,7 @@
 
             <ModalBooks
               :bookcase="bookcase"
+              :isOpen="isOpen"
             />
 
           </div>
@@ -66,6 +67,7 @@ export default {
 
 .my-modal {
   max-width: 90vw;
+  max-height: 90vh;
   width: $max-width;
   margin: 0px auto;
   padding: 20px;

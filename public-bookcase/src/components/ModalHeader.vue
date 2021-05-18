@@ -13,7 +13,7 @@ export default {
   name: 'ModalHeader',
   props: {
     name: String,
-    coordinates: String,
+    coordinates: Array,
   },
   computed: {
     lng: function lng() {

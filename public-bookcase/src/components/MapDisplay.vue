@@ -42,7 +42,6 @@ export default {
   computed: {
     ...mapGetters(['getList']),
     allPins: function allPins() {
-      console.log('filter : ', this.filter);
       if (!this.filter.length) {
         return this.getList;
       }

@@ -37,7 +37,6 @@ export default {
     },
     convertData(data) {
       const cleanData = [];
-      console.log('list ---> ', data);
       data.forEach((el) => {
         cleanData.push({
           recordid: el.recordid,
@@ -45,7 +44,6 @@ export default {
           coordinates: el.geometry.coordinates,
         });
       });
-      console.log('clean list ---> ', cleanData);
       return cleanData;
     },
   },

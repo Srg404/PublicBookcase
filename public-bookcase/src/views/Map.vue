@@ -48,12 +48,10 @@ export default {
     openModal: function openModal(value) {
       this.currentBookcase = value;
       this.isOpen = true;
-      console.log('Open Modal data -> ', value);
     },
     closeModal: function closeModal() {
       this.currentBookcase = {};
       this.isOpen = false;
-      console.log('Close Modal');
     },
     filter: function filter(value) {
       this.filteredList = value;
