@@ -5,10 +5,16 @@
       subTitle="Boites à livres"
     />
     <div class="sidebar">
-      <Sidebar v-on:openModal="openModal"/>
+      <Sidebar
+        v-on:openModal="openModal"
+        v-on:filter="filter"
+      />
     </div>
     <div class="map-display">
-      <MapDisplay v-on:openModal="openModal"/>
+      <MapDisplay
+        v-on:openModal="openModal"
+        :filter="filteredList"
+      />
     </div>
   </div>
 </template>
@@ -28,6 +34,7 @@ export default {
     return {
       isOpen: false,
       currentBookcase: {},
+      filteredList: {},
     };
   },
   methods: {
@@ -40,6 +47,9 @@ export default {
       this.currentBookcase = {};
       this.isOpen = false;
       console.log('Close Modal');
+    },
+    filter: function filter(value) {
+      this.filteredList = value;
     },
   },
 };

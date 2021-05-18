@@ -2,7 +2,7 @@
     <l-map :zoom="zoom" :center="center">
       <l-tile-layer :url="url"></l-tile-layer>
       <l-marker
-        v-for="(item, index) in getList"
+        v-for="(item, index) in allPins"
         v-on:click="triggerPin(item)"
         :key="index"
         :icon="icon"
@@ -24,6 +24,9 @@ export default {
     LMarker,
     LTileLayer,
   },
+  props: {
+    filter: Array,
+  },
   data() {
     return {
       url: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
@@ -38,6 +41,13 @@ export default {
   },
   computed: {
     ...mapGetters(['getList']),
+    allPins: function allPins() {
+      console.log('filter : ', this.filter);
+      if (!this.filter.length) {
+        return this.getList;
+      }
+      return this.filter;
+    },
   },
   methods: {
     triggerPin: function triggerPin(value) {

@@ -55,6 +55,12 @@ export default {
       this.$emit('openModal', value);
     },
   },
+  watch: {
+    searchList: function searchList(value) {
+      console.log(value);
+      this.$emit('filter', value);
+    },
+  },
 };
 </script>
 
