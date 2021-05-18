@@ -60,3 +60,9 @@
         width: 120%;
     }
 }
+
+input, textarea{
+    border: 1px solid $text-color;
+    padding: 5px;
+    border-radius: 2px;
+}

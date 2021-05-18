@@ -22,7 +22,7 @@ export default {
 .title{
   overflow: hidden;
   padding-top: 2em;
-  font-size: 8px;
+  font-size: 7px;
   @include respond-to(small) {
     font-size: 14px;
   }
@@ -31,6 +31,7 @@ export default {
     border: solid $text-color;
     border-width: 0 .45em .45em;
     position: relative;
+    padding: 0 1.5em;
     strong {
       display: inline-block;
       line-height: 1em;
