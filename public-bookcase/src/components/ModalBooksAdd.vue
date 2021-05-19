@@ -65,9 +65,11 @@ export default {
     display: flex;
     justify-content: space-between;
     background: white;
+    border-top: 5px solid $brand-color;
     padding: 10px;
     input{
-      width: 33.3%;
+      margin-right: 10px;
+      flex-grow: 2;
     }
   }
 </style>

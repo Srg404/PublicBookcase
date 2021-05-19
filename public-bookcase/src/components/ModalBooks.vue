@@ -2,15 +2,23 @@
   <div class="bookcase">
 
     <div class="onglets">
-      <div>Dans la boite</div>
-      <div>Historique de la boite</div>
+      <button
+        @click="showHistory=false"
+        :class="{active: !showHistory}"
+      >Dans la boite</button>
+      <button
+        @click="showHistory=true"
+        :class="{active: showHistory}"
+      >Historique de la boite</button>
     </div>
 
     <ModalBooksCurrent
+      v-if="!showHistory"
       :books="booksCurrent"
       @removeBook="removeBook"
     />
     <ModalBooksHistory
+      v-else
       :books="booksHistory"
     />
 
@@ -35,6 +43,7 @@ export default {
   },
   data() {
     return {
+      showHistory: false,
       dataFirestore: {
       },
     };
@@ -143,10 +152,32 @@ export default {
 <style scoped lang="scss">
   @import "../assets/scss/abstracts";
   .bookcase{
+    display: flex;
+    flex-direction: column;
     text-align: left;
     margin-top: 10px;
     padding: 5px;
     background: $brand-color;
     color: $white;
+    [class*=-book]{
+      background: $white;
+      color: $text-color;
+    }
+  }
+  .onglets{
+    display: flex;
+    button{
+      flex-grow: 2;
+      background: $brand-color;
+      color: $white;
+      font-size: 22px;
+      font-weight:600;
+      text-align: left;
+      border: none;
+      &.active{
+        background-color: $white;
+        color: $brand-color;
+      }
+    }
   }
 </style>

@@ -41,6 +41,7 @@ export default {
   computed: {
     ...mapGetters(['getList']),
     searchList() {
+      // TODO filtered need an Object not an Array !!!!
       return this.getList.filter((el) => {
         const filtered = el.name.toLowerCase().includes(this.searchElement.toLowerCase());
         return filtered;
@@ -57,6 +58,8 @@ export default {
   },
   watch: {
     searchList: function searchList(value) {
+      console.log('getlist: ', this.getList);
+      console.log('filter: ', value);
       this.$emit('filter', value);
     },
   },
