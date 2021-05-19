@@ -3,20 +3,20 @@
       <div v-if="isOpen">
         <div class="overlay" @click.self="closeModal">
           <div class="my-modal">
-            <ModalHeader
-              :name="bookcase.name"
-              :coordinates="bookcase.coordinates"
-            />
             <button
               class="close-bt"
               v-on:click="closeModal"
             ><span>fermer</span></button>
-
-            <ModalBooks
-              :bookcase="bookcase"
-              :isOpen="isOpen"
-            />
-
+            <div class="modal-container">
+              <ModalHeader
+                :name="bookcase.name"
+                :coordinates="bookcase.coordinates"
+              />
+              <ModalBooks
+                :bookcase="bookcase"
+                :isOpen="isOpen"
+              />
+            </div>
           </div>
         </div>
       </div>
@@ -67,7 +67,7 @@ export default {
 
 .my-modal {
   max-width: 90vw;
-  max-height: 90vh;
+  height: 90vh;
   width: $max-width;
   margin: 0px auto;
   padding: 20px;
@@ -77,6 +77,11 @@ export default {
   font-family: Helvetica, Arial, sans-serif;
   position: relative;
   z-index: 100;
+  .modal-container{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
 }
 .fadeIn-enter {
   opacity: 0;

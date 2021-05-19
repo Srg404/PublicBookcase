@@ -150,6 +150,9 @@ export default {
 <style scoped lang="scss">
   @import "../assets/scss/abstracts";
   .bookcase{
+    max-height: 100%;
+    overflow: hidden;
+    flex-grow: 2;
     display: flex;
     flex-direction: column;
     text-align: left;

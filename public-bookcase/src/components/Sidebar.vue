@@ -9,6 +9,13 @@
         v-model="searchElement"
         placeholder="Recherche par adresse"
         >
+        <button
+          class="reset"
+          @click="resetFilter"
+        >
+          <i class="fas fa-times"></i>
+          <span>Effacer</span>
+        </button>
     </div>
       <ul v-if="searchList.length">
         <li v-for="(el, index) in searchList" :key="index">
@@ -55,6 +62,9 @@ export default {
     openModal(value) {
       this.$emit('openModal', value);
     },
+    resetFilter() {
+      this.searchElement = '';
+    },
   },
   watch: {
     searchList: function searchList(value) {
@@ -85,7 +95,25 @@ export default {
       }
     }
   }
-  .form-search{
+  .search{
     width: 100%;
+    position: relative;
+    input{
+      width: 100%;
+      padding-right: 35px;
+    }
+    button{
+      padding: 0;
+      border: none;
+      background: transparent;
+      position: absolute;
+      right: 20px;
+      top: 20px;
+      bottom: 20px;
+      width: 30px;
+    }
+    span{
+      display: none;
+    }
   }
 </style>

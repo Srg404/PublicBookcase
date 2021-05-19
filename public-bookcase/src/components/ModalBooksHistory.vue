@@ -48,7 +48,11 @@ export default {
 <style scoped lang="scss">
   @import "../assets/scss/abstracts";
   .history-book{
-    padding: 10px;
+    flex-grow: 2;
+    border: 5px solid $white;
+    padding: 0;
+    flex-grow: 2;
+    overflow: auto;
     ul{
       padding: 0;
       margin: 5px 0;

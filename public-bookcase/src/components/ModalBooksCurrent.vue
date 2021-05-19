@@ -21,7 +21,7 @@
       </li>
     </ul>
     <div v-else>
-      Il n'y pas de livre encodé pour cette boites actuellement.<br>
+      Il semblerai que cette boite est vide.<br>
       Mais vous pouvez toujours aller verifier et encoder les livres si il y en a
       <i class="far fa-smile-wink"></i>
     </div>
@@ -58,11 +58,15 @@ export default {
 <style scoped lang="scss">
   @import "../assets/scss/abstracts";
   .current-book{
-    padding: 10px;
+    flex-grow: 2;
+    border: 5px solid $white;
+    padding: 0;
+    overflow: auto;
     ul{
       padding: 0;
       margin: 5px 0;
-      list-style: none;;
+      list-style: none;
+      max-height: 100%;
       li{
         margin: 0;
         padding: 5px;
