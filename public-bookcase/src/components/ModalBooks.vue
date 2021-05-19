@@ -86,7 +86,7 @@ export default {
   },
   methods: {
     opened: function openModal() {
-      console.log('firebase ON');
+      console.log('firebase observer ON for :', this.boxObjId);
       this.dbRefObjID.get().then((snapshot) => {
         if (snapshot.exists()) {
           console.log('Data available !');
@@ -101,7 +101,7 @@ export default {
       });
     },
     closed: function closeModal() {
-      console.log('firebase observer OFF');
+      console.log('firebase observer OFF for ', this.boxObjId);
       this.dbRefObjID.off();
     },
     dataObserver: function dataObserver() {
@@ -118,7 +118,6 @@ export default {
       this.dbRefObjID.set(dbBoxesData);
     },
     addBook: function addBook(newBook) {
-      console.log('newbook :', newBook);
       this.books.push(newBook);
       firebase.database().ref(`${this.boxObjId}/books`).set(this.books);
     },
@@ -141,7 +140,6 @@ export default {
   },
   created() {
     this.opened();
-    console.log('current bookcase -> ', this.bookcase.recordid);
   },
   destroyed() {
     this.closed();

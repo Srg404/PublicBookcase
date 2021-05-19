@@ -49,7 +49,4 @@ export default {
 
 <style scoped lang="scss">
   @import "../assets/scss/abstracts";
-  .current-book{
-
-  }
 </style>

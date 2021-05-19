@@ -58,8 +58,6 @@ export default {
   },
   watch: {
     searchList: function searchList(value) {
-      console.log('getlist: ', this.getList);
-      console.log('filter: ', value);
       this.$emit('filter', value);
     },
   },

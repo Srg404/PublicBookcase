@@ -40,7 +40,4 @@ export default {
 
 <style scoped lang="scss">
   @import "../assets/scss/abstracts";
-  .history-book{
-
-  }
 </style>
