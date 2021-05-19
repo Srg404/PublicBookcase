@@ -45,11 +45,11 @@ export default {
   },
   methods: {
     closeModal: function closeModal() {
-      console.log('Modal closed !');
+      console.log('Modal closed');
       this.$emit('close-modal');
     },
     openModal: function openModal() {
-      console.log('Modal open !');
+      console.log('Modal opened');
     },
   },
   watch: {

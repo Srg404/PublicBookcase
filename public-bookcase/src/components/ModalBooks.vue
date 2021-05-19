@@ -89,10 +89,10 @@ export default {
       console.log('firebase observer ON for :', this.boxObjId);
       this.dbRefObjID.get().then((snapshot) => {
         if (snapshot.exists()) {
-          console.log('Data available !');
+          console.log('Data available');
           this.dataObserver();
         } else {
-          console.log('No data available !');
+          console.log('No data available');
           this.createData();
           this.dataObserver();
         }
