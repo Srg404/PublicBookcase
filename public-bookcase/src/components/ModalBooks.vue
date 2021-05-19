@@ -7,10 +7,11 @@
     </div>
 
     <ModalBooksCurrent
-      :books="books"
+      :books="booksCurrent"
+      @removeBook="removeBook"
     />
     <ModalBooksHistory
-      :books="books"
+      :books="booksHistory"
     />
 
     <ModalBooksAdd
@@ -55,6 +56,24 @@ export default {
       }
       return this.dataFirestore.books;
     },
+    booksCurrent: function booksCurrent() {
+      const filterByDate = function filterByDate(el) {
+        if (el.dateOut === undefined) {
+          return true;
+        }
+        return false;
+      };
+      return this.books.filter(filterByDate);
+    },
+    booksHistory: function booksHistory() {
+      const filterByDate = function filterByDate(el) {
+        if (el.dateOut !== undefined) {
+          return true;
+        }
+        return false;
+      };
+      return this.books.filter(filterByDate);
+    },
   },
   methods: {
     opened: function openModal() {
@@ -93,6 +112,22 @@ export default {
       console.log('newbook :', newBook);
       this.books.push(newBook);
       firebase.database().ref(`${this.boxObjId}/books`).set(this.books);
+    },
+    removeBook: function addBook(book) {
+      const newBooks = [];
+      this.books.forEach((el) => {
+        if ((el.title === book.title && el.dateIn === book.dateIn)) {
+          newBooks.push({
+            title: el.title,
+            author: el.author,
+            dateIn: el.dateIn,
+            dateOut: Date.now(),
+          });
+        } else {
+          newBooks.push(el);
+        }
+      });
+      firebase.database().ref(`${this.boxObjId}/books`).set(newBooks);
     },
   },
   created() {

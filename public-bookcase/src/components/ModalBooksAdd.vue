@@ -18,7 +18,7 @@
 
     <SimpleButton
         v-on:clickButton="addBook"
-        iconClass="fas fa-plus"
+        iconClass="fas fa-plus-square"
         title="Ajouter un livre"
       />
   </div>
