@@ -20,6 +20,11 @@
           </div>
       </li>
     </ul>
+    <div v-else>
+      Il n'y pas de livre encodé pour cette boites actuellement.<br>
+      Mais vous pouvez toujours aller verifier et encoder les livres si il y en a
+      <i class="far fa-smile-wink"></i>
+    </div>
   </div>
 </template>
 
@@ -61,27 +66,36 @@ export default {
       li{
         margin: 0;
         padding: 5px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        text-align: left;
         border-bottom: 1px solid $text-color;
+        &:nth-child(odd){
+          background: $verylight-grey;
+        }
         &:nth-child(even){
           background: $semi-light-grey;
         }
         &:last-child{
           border: none;
         }
-        display: flex;
-        justify-content: space-between;
-        text-align: left;
-        div:nth-child(0){
-          width: 30%;
-        }
         div:nth-child(1){
           width: 30%;
+          flex-grow: 2;
         }
         div:nth-child(2){
-          width: 20%;
+          width: 30%;
+          flex-grow: 2;
         }
         div:nth-child(3){
           width: 20%;
+          flex-grow: 1;
+        }
+        div:nth-child(4){
+          width: 20%;
+          flex-grow: 1;
+          text-align: right;
         }
       }
     }

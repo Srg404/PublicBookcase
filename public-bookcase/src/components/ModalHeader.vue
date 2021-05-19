@@ -33,7 +33,7 @@ export default {
     align-items: center;
     i{
       font-size: 64px;
-      color: $brand-color;
+      color: $main-color;
     }
   }
   .group-h1{
@@ -46,7 +46,7 @@ export default {
     }
     h1{
       text-transform: uppercase;
-      color: $brand-color;
+      color: $main-color;
       font-size: 48px;
       font-weight: 800;
     }

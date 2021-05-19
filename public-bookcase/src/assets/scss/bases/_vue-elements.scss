@@ -21,7 +21,7 @@
         display: block;
         z-index: -12;
         opacity: 1;
-        background: $brand-color;
+        background: $main-color;
         width: 0%;
         height: 100%;
         top: 0;
@@ -37,7 +37,7 @@
         width: 0%;
         height: 100%;
         display: block;
-        background: $brand-color-alpha;
+        background: $main-color-alpha;
         position: absolute;
         transform: skewX(-20deg);
         left: -10%;

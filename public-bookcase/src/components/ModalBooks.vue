@@ -155,7 +155,7 @@ export default {
     text-align: left;
     margin-top: 10px;
     padding: 5px;
-    background: $brand-color;
+    background: $main-color;
     color: $white;
     [class*=-book]{
       background: $white;
@@ -166,7 +166,7 @@ export default {
     display: flex;
     button{
       flex-grow: 2;
-      background: $brand-color;
+      background: $main-color;
       color: $white;
       font-size: 22px;
       font-weight:600;
@@ -174,7 +174,7 @@ export default {
       border: none;
       &.active{
         background-color: $white;
-        color: $brand-color;
+        color: $main-color;
       }
     }
   }

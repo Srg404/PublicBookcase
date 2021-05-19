@@ -16,6 +16,10 @@
           </div>
       </li>
     </ul>
+    <div v-else>
+      L'historique de cette boite est vide.
+      <i class="far fa-frown"></i>
+    </div>
   </div>
 </template>
 
@@ -53,6 +57,9 @@ export default {
         margin: 0;
         padding: 5px;
         border-bottom: 1px solid $text-color;
+        &:nth-child(odd){
+          background: $verylight-grey;
+        }
         &:nth-child(even){
           background: $semi-light-grey;
         }
@@ -62,17 +69,19 @@ export default {
         display: flex;
         justify-content: space-between;
         text-align: left;
-        div:nth-child(0){
-          width: 30%;
-        }
         div:nth-child(1){
-          width: 30%;
+          width: 40%;
         }
         div:nth-child(2){
-          width: 20%;
+          width: 40%;
         }
         div:nth-child(3){
-          width: 20%;
+          width: 10%;
+          text-align: right;
+        }
+        div:nth-child(4){
+          width: 10%;
+          text-align: right;
         }
       }
     }
