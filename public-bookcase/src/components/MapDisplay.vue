@@ -25,7 +25,7 @@ export default {
     LTileLayer,
   },
   props: {
-    filter: Object,
+    filter: Array,
   },
   data() {
     return {

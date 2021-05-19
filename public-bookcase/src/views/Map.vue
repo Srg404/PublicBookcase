@@ -41,7 +41,7 @@ export default {
     return {
       isOpen: false,
       currentBookcase: {},
-      filteredList: {},
+      filteredList: [],
     };
   },
   methods: {
